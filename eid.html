@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eid Mubarak</title>
+
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background:#0c0c1d;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Sections */
+section{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+/* Gradient text */
+h1 {
+    font-size: 60px;
+    background: linear-gradient(45deg, gold, cyan);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* ADD THIS */
+    color: transparent;
+}
+
+h2{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+p{
+    max-width:600px;
+}
+
+/* Button */
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    border:none;
+    background:gold;
+    color:black;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* Different page colors */
+.page1{ background: radial-gradient(circle, #1a1a40, #000); }
+.page2{ background: linear-gradient(45deg, #0f2027, #203a43, #2c5364); }
+.page3{ background: #653d3d; }
+.page4{ background: #37b869; }
+.page5{ background: #024384; }
+
+/* Image gallery */
+.gallery{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.gallery img{
+    width:200px;
+    height:200px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.1);
+}
+
+/* Moon */
+.moon{
+    width:150px;
+    height:150px;
+    background:gold;
+    border-radius:50%;
+    box-shadow:0 0 40px gold;
+    margin-bottom:20px;
+}
+
+/* Navbar */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:10px;
+    background:rgba(0,0,0,0.5);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+<a href="#p1">Home</a>
+<a href="#p2">Wishes</a>
+<a href="#p3">Gallery</a>
+<a href="#p4">About</a>
+<a href="#p5">Final</a>
+</nav>
+
+<!-- Page 1 -->
+<section id="p1" class="page1">
+<div class="moon"></div>
+<h1>Eid Mubarak</h1>
+<p>Eid Mubarak to you and your family! <br>
+   May this special day bring peace,<br>
+   happiness, and prosperity to everyone.</p>
+<button onclick="scrollToPage('p2')">Next</button>
+</section>
+
+<!-- Page 2 -->
+<section id="p2" class="page2">
+<h2>Eid Wishes 💫</h2>
+<p>Eid Mubarak! May Allah bless you with endless joy, <br>
+   good health, and prosperity. <br>
+   Have a wonderful celebration!</p>
+<button onclick="scrollToPage('p3')">Next</button>
+</section>
+
+<!-- Page 3 -->
+<section id="p3" class="page3">
+<h2>Memories 📸</h2>
+<div class="gallery">
+<img src="https://i.ibb.co/zTSMhRVS/decorative-eid-moon-holy-festival-background-1017-37994.jpg" alt="Eid Decoration">
+<img src="https://i.ibb.co/BVTJ2YGk/fa643ce68a5c7f019d30b131f4833602.jpg"  alt="Eid Decoration">
+<img src="https://i.ibb.co/MkBzCBp5/eid-mubarak-shayari.webp" alt="Eid Wish">
+</div>
+<button onclick="scrollToPage('p4')">Next</button>
+</section>
+
+<!-- Page 4 -->
+<section id="p4" class="page4">
+<h2>✨Eid ul-Fitr Mubarak 🌙🕌</h2>
+<p><p>
+On this sacred occasion of Eid ul Fitr,<br>
+ I humbly seek forgiveness for all my past mistakes. <br>
+  If I have ever hurt you, <br> 
+  knowingly or unknowingly, <br>
+   please forgive me. Eid Mubarak.
+</p></p>
+<button onclick="scrollToPage('p5')">Next</button>
+</section>
+
+<!-- Page 5 -->
+<section id="p5" class="page5">
+<h1>✨Let’s celebrate Eid together❣️ </h1>
+<p><p>
+Let’s celebrate this joyful occasion of Eid together, <br>
+ spreading love, laughter, and endless happiness. Eid Mubarak!
+</p> 😊</p>
+</section>
+
+<script>
+// Scroll function
+function scrollToPage(id){
+    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+// GSAP Animations
+gsap.from("h1", {
+    y: -100,
+    opacity: 0,
+    duration: 1.5
+});
+
+gsap.from(".moon", {
+    scale: 0,
+    duration: 1.5
+});
+
+gsap.from("p", {
+    opacity: 0,
+    delay: 1,
+    duration: 1
+});
+
+gsap.from("button", {
+    y: 50,
+    opacity: 0,
+    delay: 1.2
+});
+</script>
+
+</body>
+</html>
